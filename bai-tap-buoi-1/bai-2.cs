@@ -30,4 +30,19 @@ namespace ExampleCAdvance.Hinh
         public double getDienTich() => Math.PI * banKinh * banKinh;
         public double getChuVi() => 2 * Math.PI * banKinh;
     }
+
+    public class Bai2
+    {
+        public static void Run()
+        {
+            Console.Write("Nhập bán kính hình tròn: ");
+            double r;
+            while (!double.TryParse(Console.ReadLine(), out r) || r < 0)
+                Console.Write("Bán kính không hợp lệ (phải >= 0)! Nhập lại: ");
+
+            IHinh hinhTron = new HinhTron(r);
+            Console.WriteLine($"Chu vi hình tròn: {hinhTron.getChuVi():F2}");
+            Console.WriteLine($"Diện tích hình tròn: {hinhTron.getDienTich():F2}");
+        }
+    }
 }
